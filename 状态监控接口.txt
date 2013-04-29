@@ -1,0 +1,16 @@
+开启状态监控接口：
+在dragon配置文件中，在server块下增加一个location,  如下所示：
+http {
+	.....
+	server {
+		listen       8007;
+		......
+       	        location /dragonstatus {
+                       stub_status_ex on;				#开启状态监控接口功能，不配置或配为stub_status_ex off 为关闭该功能
+                }
+		......
+	}
+	.....
+}
+
+访问: http://127.0.0.1:8007/dragonstatus  即可查看到dragon的状态信息
