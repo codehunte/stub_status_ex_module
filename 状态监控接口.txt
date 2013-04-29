@@ -1,12 +1,18 @@
+
+该模块对nginx原有的状态模块增强
+1. 格式化输出
+2. 流量统计 可按按host分别
+3. http 响应码统计 可按host分别统计 
+
 开启状态监控接口：
-在dragon配置文件中，在server块下增加一个location,  如下所示：
+在nginx配置文件中，在server块下增加一个location,  如下所示：
 http {
 	.....
 	server {
 		listen       8007;
 		......
        	        location /dragonstatus {
-                       stub_status_ex on;				#开启状态监控接口功能，不配置或配为stub_status_ex off 为关闭该功能
+                       stub_status_ex on; #开启状态监控接口功能，不配置或配为stub_status_ex off 为关闭该功能
                 }
 		......
 	}
